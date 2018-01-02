@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+	 <meta name=”robots" content=”noindex, nofollow">
+<style type="text/css">
+.target1 {	position:absolute;
+
+	cursor:pointer;
+}
+.target1 {	position:absolute;
+
+	cursor:pointer;
+}
+</style>
+<head>
+<meta charset="UTF-8">
+<title>Kill the Crystal Shrimp!</title>
+<style>
+#container{
+	width:1280px;
+	height: 768px;
+	margin:0 auto;
+	overflow:hidden;
+	position:relative;
+	cursor:pointer;
+}
+/* To animate, you need to set the position to absolute or relative, else it will not move */
+	#amethystroom {
+	position: absolute;
+	left: 9px;
+	top: 9px;
+	align-self: center;
+	}
+.target{
+	position:absolute;
+	cursor:pointer;
+}
+#message{
+	text-align:center;
+}
+</style>
+</head>
+<title>Kill the Crystal Shrimp</title>
+</head>
+
+<body>
+<img src="../images/amethyst-room.png" alt="" width="1280" height="768" id="amethystroom"/>
+<div id="container">
+  <!-- add as many targets as you like, each will have a onclick event that runs a function calcScore(). The 'this' in the function refers to itself -->
+<img src="../images/crystal-shrimp.png"  div class="target" onClick="calcScore(this) ;document.getElementById('whip').play()" style="top: 165.711px; left: 143.758px;"/>
+<img src="../images/crystal-shrimp.png"  div class="target" onclick="calcScore(this) ;document.getElementById('whip').play()" style="top: 152.1px; left: 953.695px;"/>
+<img src="../images/crystal-shrimp.png"  div class="target" onclick="calcScore(this) ;document.getElementById('whip').play()" style="top: 129.71px; left: -98.2631px;"/>
+<img src="../images/crystal-shrimp.png"  div class="target" onclick="calcScore(this) ;document.getElementById('whip').play()" style="top: 437.588px; left: 946.963px;"/>
+<img src="../images/crystal-shrimp.png"  div class="target" onclick="calcScore(this) ;document.getElementById('whip').play()" style="top: 332.206px; left: 494.919px;"/>
+<img src="../images/crystal-shrimp.png"  div class="target" onclick="calcScore(this) ;document.getElementById('whip').play()" style="top: 290.802px; left: -56.0921px;"/>
+
+<!-- this animation sample uses jQuery, which is a JavaScript library that makes it easier for you to code in JavaScript. The line below loads the jquery file from google --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+   function runIt(me) {
+      $(me).css("top",Math.random()*500)
+	  .animate({"left":"960px"},Math.random()*2000+1000,function(){$(me).css("top",Math.random()*500)})
+      .animate({"left":"-100px"},Math.random()*2000+1000,function(){$(me).css("top",Math.random()*500);runIt(me)});
+   }
+   $(".target").each(function(){runIt($(this))});
+
+score = 0;
+function calcScore(me){
+	$(me).hide();
+	score++;
+	$("#message").html("You killed "+score);
+	if(score==6){
+		alert("Yay! Now Amethyst can start packing her bag! ");
+		window.location="meet-amethyst-postgame.html";
+	}
+}
+</script>
+
+<script type="text/javascript">
+alert("OH NO!! Amethyst's room is infested with crystal shrimp! Click on the crystal shrimp to kill them with Amethyst's Gem Whip so that Amethyst can start packing her bag!")
+</script>
+
+	<audio id="game" autoplay>
+	<source src="gimme-gimme.mp3" type="" >
+	<body onLoad="document.getElementById('amethyst-game').play(); document.getElementById('amethyst-game').volume=0.5"></body>
+</audio>
+
+<audio id="whip">
+  	<source src="whipcrackbullwhip_S08WA.1741.wav" type="audio/wav">
+</audio>
+	<script type="text/javascript">
+		parent.document.getElementById("sugilite").pause();
+	</script>
+</div>
+</body>
+</html>

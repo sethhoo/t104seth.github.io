@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	 <meta name=”robots" content=”noindex, nofollow">
+<meta charset="UTF-8">
+<title>Let's Travel, Gems!</title>
+	<link href="https://fonts.googleapis.com/css?family=Acme|Bungee|Concert+One" rel="stylesheet">
+	<style>
+	/* Modify the size of the health bar by adjusting the width and height. The size of the #health div and #bar div must match */
+	
+
+    </style>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="container"><img src="../images/sparkles-gif.gif" alt="" width="602" height="489" id="sparkles"/><img src="../images/temple-inside.png" alt="" width="1280" height="768" id="warppad"/>
+  <div id="health">
+    <div id="bar"></div>
+  </div>
+	<div id="button"><button onclick="attack()">Charge</button></div>	
+
+<script>
+// set damage to 0
+var damage = 0;
+
+// define attack function
+function attack(){
+	// add 20 to damage
+	damage += 40;
+	
+	// update the health bar
+	document.getElementById("bar").style.right = damage+"px";
+	
+	// if the damage is more or equals to 400, you have won!
+	if(damage >= 600){
+		alert("Warp Pad charged! Let's go!");
+		window.location.href="warp-pad-postgame.html";
+	}
+}
+</script>
+  <img src="../images/health-bar-shadow.png" alt="" width="600" height="40" id="healthbarshadow"/>
+  <p11>Keep clicking to charge the Warp Pad with energy so that the Gems can travel to the safehouse!</p11>
+  <p12>Keep clicking to charge the Warp Pad with energy so that the Gems can travel to the safehouse!</p12>
+  <p13>Keep clicking to charge the Warp Pad with energy so that the Gems can travel to the safehouse!</p13>
+  <img src="../images/sparkles-gif.gif" alt="" width="602" height="489" id="sparkles2"/>
+	<img src="../images/sparkles-gif.gif" alt="" width="602" height="489" id="sparkles3"/>
+  <script type="text/javascript">
+	parent.document.getElementById("strongerthanyou").pause();
+	</script>
+  <audio autoplay loop>
+    <source src="strawberry-fields.mp3" type="audio/mp3">
+  </audio>
+</div>
+</body>
+</html>

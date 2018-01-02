@@ -1,0 +1,66 @@
+ <!doctype html>
+<html>
+<head>
+	 <meta name=”robots" content=”noindex, nofollow">
+<meta charset="UTF-8">
+<title>Open Garnet's 3rd Eye!</title>
+	<link href="https://fonts.googleapis.com/css?family=Acme|Bungee|Concert+One" rel="stylesheet">
+<style>
+/*Some basic styles for container. The position is set to relative so that the other divs inside the container can be positioned properly within*/
+</style>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="garnet-eye-game-container">
+  <p><img src="../images/garnet-close-eye.png" height="565" usemap="#Map">
+    <map name="Map">
+      <area shape="circle" coords="469,101,67" onClick="countClicks()">
+    </map>
+  </p>
+  <!-- clicking on the button will run a function called showDialog() -->
+  <button onClick="showDialog()">What do I do?</button>
+  <!-- the div for the dialog box is here. The showDialog() function changes the text in the box when the button is clicked -->
+  <div id="dialog-box">
+    <p>It's time to activate my
+      FUTURE VISION</p>
+  </div>
+  <!-- we use the jQuery library to help us fade in the dialog box -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script>
+<!-- we use a counter to keep track of which stage of the dialog the user is at -->
+var counter = 0;
+
+function showDialog(){
+	//check if the counter is 0
+	if(counter==0){
+		//fade in the box
+		$("#dialog-box").fadeIn();
+		//change the text for the button
+		$("button").text("Future vision?");
+	}
+	//check if the counter is 1
+	if(counter==1){
+		//change the text in the dialog box
+		$("#dialog-box").html("<p>Yup! I can see the future!</p>");
+		//change the text for the button
+		$("button").text("Oh! So you can predict where the Diamonds will invade?");
+	}
+	if(counter==2){
+		$("#dialog-box").html("<p>Yup! That's right!</p>");
+		$("button").text("Ok cool!");
+	}
+	if(counter==3){
+		$("#dialog-box").html("<p>Ok now, click 10 times on my third eye</p>");
+		$("button").text("Got it!");
+	}
+	//increase counter by 1
+	counter++;
+}
+var clicks=0;
+	function countClicks(){clicks++;if(clicks>9){window.location="garnet-eye-game-2.html"}}
+	
+</script>
+</div>
+</body>
+</html>

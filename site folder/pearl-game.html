@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<link href="style.css" rel="stylesheet" type="text/css">
+<head>
+	 <meta name=”robots" content=”noindex, nofollow">
+<meta charset="UTF-8">
+<script>
+//define a variable count to keep track of the number of drops
+count=0;
+//define a variable seq to keep tack of the sequence of items dragged
+
+
+//function to allow dropping the div
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+//function to allow dragging
+function drag(ev) {
+    //store the name of the id
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+//function to drop the div
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+	count++;
+    
+    //check if count is equals to 4
+    if(count==4){
+      
+         //prompt a message, can remove and replace with your own codes such as redirecting to another page
+         alert("Yay! You helped pack steven's bag!");
+		 window.location="../site folder/meet-pearl-postgame.html";
+      } 
+ }
+
+</script>
+
+<title>Pack Steven's Bag!</title>
+</head>
+
+	
+<body>
+<div id="container"><img src="../images/pearl-game-bg.png" width="1280" height="768" alt=""/><!-- the div below is the drop area. The ondrop and ondragover events are required -->
+<img src="../images/cheeseburger-open.png" class="opencheeseburger" ondrop="drop(event)" ondragover="allowDrop(event)"/>
+<!-- these are the draggable divs below. They contain the attribute draggable and event ondragstart. The div will be moved to the target div when dropped -->
+<img src="../images/cookie-cat.png" id="blue" draggable="true" ondragstart="drag(event)"/>
+<img src="../images/cheeseballs.png" id="yellow" draggable="true" ondragstart="drag(event)"/>
+<img src="../images/steven-phone.png" id="green" draggable="true" ondragstart="drag(event)"/>
+<img src="../images/mc-bear.png" id="red" draggable="true" ondragstart="drag(event)"/>
+	<script type="text/javascript">
+alert("Help Pearl pack Steven's bag by dragging the items into his Cheeseburger Backpack!")
+</script>
+</div>
+
+</body>
+</html>
